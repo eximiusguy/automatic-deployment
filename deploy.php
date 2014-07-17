@@ -9,19 +9,18 @@
 	// An array in which following commands will run in sequence.
 	$commands = array(
 		'echo $PWD',
-		'whoami',
 		'git pull',
 		'git status',
 	);
 
 	// Display it pretty formatted.
-	$htmlout = '';
+	$htmlout = '<div>Running following commands, and displaying their respective output</div>';
 	foreach($commands AS $command){
 		// Shell run it
 		$tmp = shell_exec($command);
 		// Output
 		$htmlout .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
-		$htmlout .= htmlentities(trim($tmp)) . "\n";
+		$htmlout .= htmlentities(trim($tmp)) . "\n\n";
 	}
 
 ?>
